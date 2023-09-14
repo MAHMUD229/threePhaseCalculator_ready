@@ -2,6 +2,7 @@
 #define FUNCTIONS_H
 
 #include <QCoreApplication>
+#include <QXmlStreamReader>
 
 /*!
  * \struct Component
@@ -27,5 +28,21 @@ struct Phase {
     QList<Component> inductors;
     QList<Component> capacitors;
 };
+
+/*!
+ * \brief Парсинг XML-файла с описанием электрической цепи
+ *
+ * Функция выполняет парсинг XML-файла, содержащего описание электрической цепи.
+ * Извлекает информацию о напряжении и компонентах цепи для каждой фазы.
+ *
+ * \param[in] filePath Путь к XML-файлу с описанием цепи.
+ * \param[in, out] voltage Выходной параметр, в который будет записано напряжение цепи.
+ * \param[in, out] circuitType - Выходной параметр, в который будет записан тип трехфазной цепи: "Треугольник" или "Звезда".
+ * \return Карта фаз цепи, содержащая списки резисторов, катушек и конденсаторов для каждой фазы.
+ *         В случае ошибки возвращает пустую карту фаз.
+ */
+QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QString &circuitType);
+
+
 
 #endif // FUNCTIONS_H
