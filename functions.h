@@ -3,6 +3,9 @@
 
 #include <QCoreApplication>
 #include <QXmlStreamReader>
+#include <QMap>
+#include <QFile>
+#include <QDebug>
 
 /*!
  * \struct Component
