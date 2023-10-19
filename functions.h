@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QFile>
 #include <QDebug>
+#include <cmath>
 
 /*!
  * \struct Component
@@ -45,6 +46,18 @@ struct Phase {
  *         В случае ошибки возвращает пустую карту фаз.
  */
 QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QString &circuitType);
+
+/*!
+ * \brief Расчет тока в электрической цепи
+ *
+ * Функция проводит расчет силы тока в электрической цепи переменного тока.
+ * Принимает входные данные о компонентах цепи и ее напряжении.
+ *
+ * \param[in] phasesMap Карта фаз цепи, содержащая списки резисторов, катушек и конденсаторов для каждой фазы.
+ * \param[in] voltage Напряжение цепи переменного тока.
+ * \param[in] circuitType - Входной параметр, в котором записан тип трехфазной цепи: "Треугольник" или "Звезда".
+ */
+QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMap, long double voltage, const QString &circuitType);
 
 
 

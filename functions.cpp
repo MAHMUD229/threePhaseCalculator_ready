@@ -162,5 +162,9 @@ QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMa
         currentMap[phaseName] = current;
     }
 
+    if (!currentMap.isEmpty()){
+        qDebug() << "Current calculated succesfully!";
+    }
+
     return currentMap;
 }
