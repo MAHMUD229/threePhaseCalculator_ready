@@ -67,7 +67,6 @@ QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QSt
 
                             Component component;
 
-                            // Получение атрибутов компонента
                             QXmlStreamAttributes componentAttributes = xmlReader.attributes();
                             component.name = componentAttributes.value("name").toString();
                             QString resistanceString = componentAttributes.value("resistance").toString();
@@ -121,4 +120,47 @@ QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QSt
     file.close();
 
     return phasesMap;
+}
+
+QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMap, long double voltage, const QString &circuitType) {
+    QMap<QString, long double> currentMap;
+
+    foreach (const QString &phaseName, phasesMap.keys()) {
+        const Phase &phase = phasesMap[phaseName];
+
+        long double totalResistance = 0.0;
+        long double totalInductiveReactance = 0.0;
+        long double totalCapacitiveReactance = 0.0;
+
+
+        foreach (const Component &resistor, phase.resistors) {
+            totalResistance += resistor.resistance;
+        }
+
+        foreach (const Component &inductor, phase.inductors) {
+            totalInductiveReactance += 2 * M_PI * inductor.resistance;
+        }
+
+        foreach (const Component &capacitor, phase.capacitors) {
+            if(capacitor.resistance != 0){
+                totalCapacitiveReactance += 1 / (2 * M_PI * capacitor.resistance);
+            }
+        }
+
+        long double totalImpedance = sqrt(pow(totalResistance, 2) + pow((totalInductiveReactance - totalCapacitiveReactance), 2));
+        long double phaseVoltage = 0.0;
+        long double current = 0.0;
+
+        if (circuitType.toLower() == "star") {
+            phaseVoltage = voltage / sqrt(3);
+            current = phaseVoltage / totalImpedance;
+        } else if (circuitType.toLower() == "triangle") {
+            phaseVoltage = voltage;
+            current = phaseVoltage / totalImpedance;
+        }
+
+        currentMap[phaseName] = current;
+    }
+
+    return currentMap;
 }
