@@ -168,3 +168,27 @@ QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMa
 
     return currentMap;
 }
+
+void writeCurrentToFile(const QMap<QString, long double> &currentMap, const QString &outputFilePath) {
+    QFile outputFile(outputFilePath);
+
+    if (!outputFile.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "Failed to open the file for writing.";
+        return;
+    }
+
+    QTextStream stream(&outputFile);
+
+    if (currentMap.isEmpty()) {
+        qDebug() << "Failed to write current due to empty current Map.";
+        return;
+    }
+
+    foreach (const QString &phaseName, currentMap.keys()) {
+        long double current = currentMap[phaseName];
+
+        stream << phaseName << " : " << QString::number(current, 'g', 4) << " A\n";
+    }
+
+    outputFile.close();
+}

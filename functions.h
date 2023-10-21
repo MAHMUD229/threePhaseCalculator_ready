@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <cmath>
 
+
 /*!
  * \struct Component
  * \brief Компонент электрической цепи (резистор, катушка, конденсатор)
@@ -19,6 +20,7 @@ struct Component {
     QString name;
     long double resistance;
 };
+
 
 /*!
  * \struct Phase
@@ -32,6 +34,7 @@ struct Phase {
     QList<Component> inductors;
     QList<Component> capacitors;
 };
+
 
 /*!
  * \brief Парсинг XML-файла с описанием электрической цепи
@@ -47,6 +50,7 @@ struct Phase {
  */
 QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QString &circuitType);
 
+
 /*!
  * \brief Расчет тока в электрической цепи
  *
@@ -58,6 +62,18 @@ QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QSt
  * \param[in] circuitType - Входной параметр, в котором записан тип трехфазной цепи: "Треугольник" или "Звезда".
  */
 QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMap, long double voltage, const QString &circuitType);
+
+
+/*!
+ * \brief Запись значений тока в файл
+ *
+ * Функция записывает значения силы тока для каждой фазы в файл.
+ * Принимает карту значений тока и путь к файлу для записи результатов.
+ *
+ * \param[in] currentMap Карта значений тока для каждой фазы цепи.
+ * \param[in] outputFilePath Путь к файлу для записи результатов.
+ */
+void writeCurrentToFile(const QMap<QString, long double> &currentMap, const QString &outputFilePath);
 
 
 
