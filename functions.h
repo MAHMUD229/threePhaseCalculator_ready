@@ -2,11 +2,12 @@
 #define FUNCTIONS_H
 
 #include <QCoreApplication>
-#include <QXmlStreamReader>
-#include <QMap>
 #include <QFile>
+#include <QXmlStreamReader>
 #include <QDebug>
+#include <QMap>
 #include <cmath>
+#include <QDir>
 
 
 /*!

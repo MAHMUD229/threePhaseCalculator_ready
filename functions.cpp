@@ -122,6 +122,8 @@ QMap<QString, Phase> parseXml(const QString &filePath, long double &voltage, QSt
     return phasesMap;
 }
 
+
+
 QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMap, long double voltage, const QString &circuitType) {
     QMap<QString, long double> currentMap;
 
@@ -151,10 +153,10 @@ QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMa
         long double phaseVoltage = 0.0;
         long double current = 0.0;
 
-        if (circuitType.toLower() == "star") {
+        if (circuitType.toLower() == "star") {// Звезда
             phaseVoltage = voltage / sqrt(3);
             current = phaseVoltage / totalImpedance;
-        } else if (circuitType.toLower() == "triangle") {
+        } else if (circuitType.toLower() == "triangle") {// Треугольник
             phaseVoltage = voltage;
             current = phaseVoltage / totalImpedance;
         }
@@ -168,6 +170,8 @@ QMap<QString, long double> calculateCurrent(const QMap<QString, Phase> &phasesMa
 
     return currentMap;
 }
+
+
 
 void writeCurrentToFile(const QMap<QString, long double> &currentMap, const QString &outputFilePath) {
     QFile outputFile(outputFilePath);

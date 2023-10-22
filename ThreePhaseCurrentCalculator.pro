@@ -2,8 +2,9 @@ QT -= gui
 QT += xml
 QT += testlib
 
-CONFIG += c++11 console
+CONFIG += c++17 console
 CONFIG -= app_bundle
+#CONFIG += static
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
