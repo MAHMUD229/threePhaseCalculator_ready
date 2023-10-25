@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Circuit type="Triangle" voltage="220">
+    <Phase name="PhaseA">
+        <Resistor name="R1" resistance="100"/>
+        <Resistor name="R2" resistance="150"/>
+        <Inductor name="L1" resistance="0.01"/>
+        <Inductor name="L2" resistance="0.02"/>
+        <Capacitor name="C1" resistance="0.01"/>
+        <Capacitor name="C2" resistance="0.02"/>
+    </Phase>
+    <Phase name="PhaseB">
+        <Resistor name="R3" resistance="120"/>
+        <Resistor name="R4" resistance="180"/>
+        <Inductor name="L3" resistance="0.15"/>
+        <Inductor name="L4" resistance="0.25"/>
+        <Capacitor name="C3" resistance="0.015"/>
+        <Capacitor name="C4" resistance="0.0025"/>
+    </Phase>
+    <Phase name="PhaseC">
+        <Resistor name="R5" resistance="90"/>
+        <Resistor name="R6" resistance="120"/>
+        <Inductor name="L5" resistance="0.102"/>
+        <Inductor name="L6" resistance="0.18"/>
+        <Capacitor name="C5" resistance="0.012"/>
+        <Capacitor name="C6" resistance="0.018"/>
+    </Phase>
+</Circuit>
