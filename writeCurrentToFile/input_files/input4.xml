@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Circuit type="Star" voltage="220">
+    <Phase name="PhaseA">
+        <Resistor name="R1" resistance="100"/>
+        <Inductor name="L1" resistance="0.01"/>
+        <Capacitor name="C1" resistance="0.02"/>
+        <Resistor name="R2" resistance="120"/>
+    </Phase>
+    <Phase name="PhaseB">
+        <Resistor name="R3" resistance="120"/>
+        <Inductor name="L2" resistance="0.02"/>
+        <Capacitor name="C2" resistance="0.01"/>
+        <Capacitor name="C3" resistance="0.015"/>
+        <Resistor name="R4" resistance="180"/>
+    </Phase>
+    <Phase name="PhaseC">
+        <Resistor name="R5" resistance="90"/>
+        <Inductor name="L3" resistance="0.18"/>
+        <Capacitor name="C4" resistance="0.012"/>
+        <Capacitor name="C5" resistance="0.018"/>
+        <Resistor name="R6" resistance="120"/>
+    </Phase>
+</Circuit>

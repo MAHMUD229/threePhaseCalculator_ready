@@ -1,0 +1,14 @@
+<Circuit voltage="200" type="Triangle">
+    <Phase name="A">
+        <Resistor name="R1" resistance="-5"/>
+        <Inductor name="L1" resistance="8"/>
+    </Phase>
+    <Phase name="B">
+        <Resistor name="R2" resistance="10"/>
+        <Capacitor name="C1" resistance="15"/>
+    </Phase>
+    <Phase name="C">
+        <Resistor name="R3" resistance="18"/>
+        <Inductor name="L2" resistance="7"/>
+    </Phase>
+</Circuit>

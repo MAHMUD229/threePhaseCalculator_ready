@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Circuit type="Star" voltage="220">
+    <Phase name="PhaseA">
+        <Resistor name="R1" resistance="100"/>
+    </Phase>
+    <Phase name="PhaseB">
+        <Resistor name="R2" resistance="120"/>
+    </Phase>
+    <Phase name="PhaseC">
+        <Resistor name="R3" resistance="90"/>
+    </Phase>
+</Circuit>
