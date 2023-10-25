@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Circuit type="Star" voltage="220">
+    <Phase name="PhaseA">
+    </Phase>
+    <Phase name="PhaseB">
+    </Phase>
+    <Phase name="PhaseC">
+    </Phase>
+</Circuit>
